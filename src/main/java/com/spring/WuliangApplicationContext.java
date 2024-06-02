@@ -6,6 +6,9 @@ public class WuliangApplicationContext {
 
     public WuliangApplicationContext(Class configClass){
         this.configClass = configClass;
+        ComponentScan componentScanAnnotation = (ComponentScan) configClass.getDeclaredAnnotation(ComponentScan.class);
+        String path = componentScanAnnotation.value();
+        System.out.println(path);
     }
 
     public Object getBean(String beanName){
